@@ -26,8 +26,8 @@ public class ModelFlugzeug : ModelFahrzeug
     public bool Verleihen(int sec)
     {
         Console.WriteLine("Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird fuer "+sec+" Milisekunden verliehen.");
-        System.Threading.Thread.Sleep(sec);
-        return true;
+        Verfuegbar = false;
+        return Verfuegbar;
     }
     
     public string ToString()

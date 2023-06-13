@@ -33,6 +33,7 @@ public abstract class ModelFahrzeug : IModelFahrzeug
 
     public bool Verleihen(int sec)
     {
+        Verfuegbar = false;
         return Verfuegbar;
     }
     
