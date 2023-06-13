@@ -57,7 +57,7 @@ public class Webseite
                         Console.Write("Model: ");
                         model = Console.ReadLine(); 
                         ausg = webseite.webservice.Get(model,methode);
-                        Console.WriteLine(ausg)
+                        Console.WriteLine(ausg);
                     }
                     
                     Console.WriteLine("Verfuegbare Farben:");

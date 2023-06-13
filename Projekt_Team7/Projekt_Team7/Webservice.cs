@@ -10,36 +10,37 @@ public class Webservice
 
     public string Get(string modelName, string methode)
     {
+        string ausg = "";
         switch (methode)
         {
-            case "verleihen":
-                // Logik für Verleihen
-                return $"Verleihen von {modelName}";
+            case "Verleihen":
+                ausg = Datenbank.Verleihen(modelName);
+                return ausg;
 
-            case "reparieren":
-                // Logik für Reparieren
-                return $"Reparieren von {modelName}";
+            case "Reparieren":
+                ausg = Datenbank.Reparieren(modelName);
+                return ausg;
 
-            case "zurueckgeben":
-                // Logik für Zurückgeben
-                return $"Zurückgeben von {modelName}";
+            case "Zurueckgeben":
+                ausg = Datenbank.Zurueckgeben(modelName);
+                return ausg;
 
             default:
                 return $"Ungültige Methode: {methode}";
         }
     }
 
-    public string Put(Farbe farbe, string model, Hersteller hersteller)
+    // Einfaerben
+    public string Put(int farbe, string model)
     {
-        // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
-        Datenbank.Hinzufuegen("Flugzeug", model, (int)hersteller, (int)farbe);
-        return $"POST Request - Farbe: {farbe}, Model: {model}, Hersteller: {hersteller}";
+        string ausg = Datenbank.Einfaerben(model,farbe);
+        return ausg;
     }
 
-    public string Put(Farbe farbe, string model)
+    public string Put( string model)
     {
         // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
-        Datenbank.Hinzufuegen("Auto", model, 0, (int)farbe);
+        string ausg = 
         return $"POST Request - Farbe: {farbe}, Model: {model}";
     }
 

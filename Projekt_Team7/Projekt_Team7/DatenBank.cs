@@ -24,6 +24,8 @@ public class DatenBank
         return newm.ToString();
     }
 
+
+
     public string Verkaufen(string model)
     {
         string ausg = "";
@@ -41,6 +43,8 @@ public class DatenBank
 
         return ausg;
     }
+
+    
 
     public string Suchen(string model)
     {
@@ -60,14 +64,14 @@ public class DatenBank
         return ausg;
     }
 
-    public string Verleihen(string model, int sec)
+    public string Verleihen(string model)
     {
         string ausg = "";
         foreach (ModelFahrzeug f in listeFahrzeuge)
         {
             if (f.Model.Equals(model))
             {
-                 bool verliehen = f.Verleihen(sec);
+                 bool verliehen = f.Verleihen();
                  if (verliehen)
                  {
                      ausg = f.Model + " wurde verliehen.";
@@ -92,14 +96,14 @@ public class DatenBank
         {
             if (f.Model.Equals(model))
             {
-                //bool verliehen = f;
-                if (verliehen)
+                bool zurueckgeben = f.Zurueckgeben();
+                if (zurueckgeben)
                 {
-                    ausg = f.Model + " wurde verliehen.";
+                    ausg = f.Model + " wurde zurueckgegeben.";
                 }
                 else
                 {
-                    ausg = f.Model + " kann nicht verliehen werden.";
+                    ausg = f.Model + " kann nicht zurueckgegeben werden.";
                 }
             }
             else
@@ -108,5 +112,38 @@ public class DatenBank
             }
         }
         return ausg;
+    }
+
+    public string Reparieren(string model)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Reparieren();
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg; 
+    }
+    public string Einfaerben(string model, int farbe)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Einfaerben((Farbe)(farbe));
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg; 
     }
 }
