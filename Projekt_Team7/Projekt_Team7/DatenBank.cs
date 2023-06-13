@@ -2,11 +2,26 @@ namespace Projekt_Team7;
 
 public class DatenBank
 {
-    private ModelFlugzeug[] listeFahrzeuge;
+    private ModelFlugzeug[] listeFahrzeuge = new ModelFlugzeug[0];
 
-    public bool Hinzufuegen()
+    
+    public string  Hinzufuegen(string art,string model, string hersteller, string farbe)
     {
-        return false;
+        ModelFlugzeug newm;
+        switch (art)
+        {
+            case "Auto":
+                newm = new ModelFlugzeug(Farbe.Blau, Hersteller.Airbus, model);
+                break;
+            case "Flugzeug":
+                
+                break;
+            default:
+                break;
+        }
+        
+        
+        return "false";
     }
 
     public bool Verkaufen()
