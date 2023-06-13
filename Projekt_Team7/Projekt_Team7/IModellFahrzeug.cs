@@ -1,6 +1,6 @@
 namespace Projekt_Team7;
 
-public interface IModelFahrzeug
+public interface IModellFahrzeug
 {
     public string Verkaufen();
     public string Reparieren();

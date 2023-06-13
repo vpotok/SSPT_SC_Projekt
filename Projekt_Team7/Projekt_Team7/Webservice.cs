@@ -8,20 +8,20 @@ public class Webservice
     {
     }
 
-    public string Get(string modelName, string methode)
+    public string Get(string ModellName, string methode)
     {
-        return $"GET Request f�r {modelName} - Methode: {methode}";
+        return $"GET Request f�r {ModellName} - Methode: {methode}";
     }
 
-    public string Post (Farbe farbe, string model, Hersteller hersteller)
+    public string Post (Farbe farbe, string Modell, Hersteller hersteller)
     {
-        return $"GET Request f�r {modelName} - Methode: {methode}";
+        return $"GET Request f�r {ModellName} - Methode: {methode}";
 
     }
 
-    public string Delete(string modelName)
+    public string Delete(string ModellName)
     {
-        return $"DELETE Request f�r {modelName}";
+        return $"DELETE Request f�r {ModellName}";
 
     }
 

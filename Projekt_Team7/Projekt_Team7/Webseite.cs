@@ -36,11 +36,11 @@ public class Webseite
             int port = int.Parse(Console.ReadLine());
             if (url.Equals(webseite.Host) && port == webseite.Port)
             {
-                string model = "";
+                string Modell = "";
                 string methode = "";
                 while (true)
                 {
-                    Console.WriteLine("Moegliche Methoden fuer ModelFahrzeug:");
+                    Console.WriteLine("Moegliche Methoden fuer ModellFahrzeug:");
                     Console.WriteLine("Kaufen, Reparieren, Verliehen, Zurueckgeben, Einfaerben");
                     methode = Console.ReadLine();
                     if (methode.Equals("Kaufen"))
