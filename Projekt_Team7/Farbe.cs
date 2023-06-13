@@ -6,5 +6,6 @@ public enum Farbe
     Gruen,
     Gelb,
     Schwarz,
-    Rot
+    Rot,
+    Weiss
 }

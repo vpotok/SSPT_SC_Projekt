@@ -7,12 +7,25 @@ public abstract class ModelFahrzeug : IModelFahrzeug
     public Hersteller Hersteller { get; set; }
     public string Model { get; set; }
 
-    public abstract string Verkaufen();
-    public abstract string Reparieren();
+    public string Verkaufen()
+    {
+        return + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
+    }
+    public string Reparieren()
+    {
+        return + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde repariert.";
+    }
 
-    public abstract string Einfaerben(Farbe farbe);
+    public string Einfaerben(Farbe farbe)
+    {
+        Farbe = farbe;
+        return + Model + " vom Hersteller " + Hersteller + " hat nun die Farbe " + Farbe + ".";
+    }
 
-    public abstract bool Verleihen(int sec);
+    public bool Verleihen(int sec);
     
-    public abstract string ToString();
+    public string ToString()
+    {
+        return + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
+    }
 }
