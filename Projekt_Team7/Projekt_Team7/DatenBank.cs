@@ -2,25 +2,25 @@ namespace Projekt_Team7;
 
 public class DatenBank
 {
-    private ModelFlugzeug[] listeFahrzeuge = new ModelFlugzeug[0];
+    private List<ModelFlugzeug> listeFahrzeuge = new List<ModelFlugzeug>();
 
     
-    public string  Hinzufuegen(string art,string model, string hersteller, string farbe)
+    public string  Hinzufuegen(string art,string model, int hersteller, int farbe)
     {
-        ModelFlugzeug newm;
+        ModelFlugzeug newm = null;
         switch (art)
         {
             case "Auto":
-                newm = new ModelFlugzeug(Farbe.Blau, Hersteller.Airbus, model);
+                newm = new ModelFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), model);
                 break;
             case "Flugzeug":
-                
+                newm = new ModelFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), model);
                 break;
             default:
                 break;
         }
-        
-        
+
+        listeFahrzeuge.Add(newm);
         return "false";
     }
 
