@@ -23,10 +23,17 @@ public class ModelAuto : ModelFahrzeug
         return "Das ModelAuto " + base.Einfaerben(farbe);
     }
 
-    public bool Verleihen(int sec)
+    public override bool Verleihen()
     {
-        Console.WriteLine("Das ModelAuto " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird fuer "+sec+" Milisekunden verliehen.");
+        Console.WriteLine("Das ModelAuto " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird verliehen.");
         Verfuegbar = false;
+        return Verfuegbar;
+    }
+
+    public override bool Zurueckgeben()
+    {
+        Console.WriteLine("Das ModelAuto " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: " + Farbe + " wurde zurueckgegeben.");
+        Verfuegbar = true;
         return Verfuegbar;
     }
 

@@ -23,13 +23,20 @@ public class ModelFlugzeug : ModelFahrzeug
         return "Das ModelFlugzeug " + base.Einfaerben(farbe);
     }
 
-    public bool Verleihen(int sec)
+    public override bool Verleihen()
     {
-        Console.WriteLine("Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird fuer "+sec+" Milisekunden verliehen.");
+        Console.WriteLine("Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " wird verliehen.");
         Verfuegbar = false;
         return Verfuegbar;
     }
-    
+
+    public override bool Zurueckgeben()
+    {
+        Console.WriteLine("Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " wurde zurueckgegeben.");
+        Verfuegbar = true;
+        return Verfuegbar;
+    }
+
     public string ToString()
     {
         return "ModelFlugzeug: " + base.ToString();
