@@ -29,6 +29,6 @@ public abstract class ModelFahrzeug : IModelFahrzeug
     
     public string ToString()
     {
-        return Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
+        return Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
     }
 }

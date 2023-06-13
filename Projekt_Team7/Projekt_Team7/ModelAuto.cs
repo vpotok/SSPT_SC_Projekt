@@ -9,13 +9,13 @@ public class ModelAuto : ModelFahrzeug
 
     public string Reparieren()
     {
-        return "Das ModelAuto "+base.Reparieren();
+        return "Das ModelAuto " + base.Reparieren();
     }
 
     public string Einfaerben(Farbe farbe)
     {
         Farbe = farbe;
-        return "Das ModelAuto "+base.Einfaerben(farbe);
+        return "Das ModelAuto " + base.Einfaerben(farbe);
     }
 
     public bool Verleihen(int sec)
@@ -27,6 +27,6 @@ public class ModelAuto : ModelFahrzeug
 
     public  string ToString()
     {
-        return "ModelAuto: " + Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
+        return "ModelAuto: " + base.ToString();
     }
 }
