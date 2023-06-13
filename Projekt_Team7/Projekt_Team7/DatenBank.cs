@@ -2,10 +2,10 @@ namespace Projekt_Team7;
 
 public class DatenBank
 {
-    private List<ModelFlugzeug> listeFahrzeuge = new List<ModelFlugzeug>();
+    private List<ModelFahrzeug> listeFahrzeuge = new List<ModelFahrzeug>();
 
     
-    public string  Hinzufuegen(string art,string model, int hersteller, int farbe)
+    public string Hinzufuegen(string art,string model, int hersteller, int farbe)
     {
         ModelFlugzeug newm = null;
         switch (art)
@@ -21,22 +21,92 @@ public class DatenBank
         }
 
         listeFahrzeuge.Add(newm);
-        return "false";
+        return newm.ToString();
     }
 
-    public bool Verkaufen()
+    public string Verkaufen(string model)
     {
-        return false;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Verkaufen();
+                listeFahrzeuge.Remove(f);
+            }else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+
+        return ausg;
     }
 
-    public string Suchen()
+    public string Suchen(string model)
     {
-        return null;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.ToString();
+                
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
     }
 
-    public bool Vorhanden()
+    public string Verleihen(string model, int sec)
     {
-        return true;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                 bool verliehen = f.Verleihen(sec);
+                 if (verliehen)
+                 {
+                     ausg = f.Model + " wurde verliehen.";
+                 }
+                 else
+                 {
+                     ausg = f.Model + " kann nicht verliehen werden.";
+                 }
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
     }
     
+    public string Zurueckgeben(string model)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                //bool verliehen = f;
+                if (verliehen)
+                {
+                    ausg = f.Model + " wurde verliehen.";
+                }
+                else
+                {
+                    ausg = f.Model + " kann nicht verliehen werden.";
+                }
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
+    }
 }

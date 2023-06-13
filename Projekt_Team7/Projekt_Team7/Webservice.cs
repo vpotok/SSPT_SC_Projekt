@@ -15,7 +15,7 @@ public class Webservice
 
     public string Post (Farbe farbe, string model, Hersteller hersteller)
     {
-        return $"GET Request f�r {modelName} - Methode: {methode}";
+        return $"GET Request f�r {model} - Methode: {methode}";
 
     }
 
