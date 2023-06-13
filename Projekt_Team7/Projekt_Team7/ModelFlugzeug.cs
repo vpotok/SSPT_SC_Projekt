@@ -9,29 +9,29 @@ public class ModelFlugzeug : ModelFahrzeug
     
     public string Verkaufen()
     {
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
+        return "Das ModelFlugzeug " + base.Verkaufen();
     }
 
     public string Reparieren()
     {
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde repariert.";
+        return "Das ModelFlugzeug " + base.Verkaufen();
     }
 
     public string Einfaerben(Farbe farbe)
     {
         Farbe = farbe;
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " hat nun die Farbe "+Farbe+".";
+        return "Das ModelFlugzeug " + base.Einfaerben(farbe);
     }
 
     public bool Verleihen(int sec)
     {
         Console.WriteLine("Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird fuer "+sec+" Milisekunden verliehen.");
-        System.Threading.Thread.Sleep(sec);
-        return true;
+        Verfuegbar = false;
+        return Verfuegbar;
     }
     
     public string ToString()
     {
-        return "ModelFlugzeug: " + Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
+        return "ModelFlugzeug: " + base.ToString();
     }
 }

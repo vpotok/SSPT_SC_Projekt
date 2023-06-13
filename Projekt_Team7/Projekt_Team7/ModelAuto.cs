@@ -14,24 +14,24 @@ public class ModelAuto : ModelFahrzeug
 
     public string Reparieren()
     {
-        return "Das ModelAuto "+base.Reparieren();
+        return "Das ModelAuto " + base.Reparieren();
     }
 
     public string Einfaerben(Farbe farbe)
     {
         Farbe = farbe;
-        return "Das ModelAuto "+base.Einfaerben(farbe);
+        return "Das ModelAuto " + base.Einfaerben(farbe);
     }
 
     public bool Verleihen(int sec)
     {
         Console.WriteLine("Das ModelAuto " + Model + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird fuer "+sec+" Milisekunden verliehen.");
-        System.Threading.Thread.Sleep(sec);
-        return true;
+        Verfuegbar = false;
+        return Verfuegbar;
     }
 
     public  string ToString()
     {
-        return "ModelAuto: " + Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
+        return "ModelAuto: " + base.ToString();
     }
 }
