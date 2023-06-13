@@ -24,12 +24,12 @@ public class DatenBank
         return "false";
     }
 
-    public bool Verkaufen()
+    public bool Verkaufen() // da wird was aus der liste gelöscht mit pop?
     {
         return false;
     }
 
-    public string Suchen()
+    public string Suchen() // 
     {
         return null;
     }
