@@ -46,26 +46,32 @@ public class Webseite
                     Console.WriteLine("Moegliche Methoden fuer ModelFahrzeug:");
                     Console.WriteLine("Kaufen, Reparieren, Verliehen, Zurueckgeben, Einfaerben");
                     methode = Console.ReadLine();
-                    if (methode.Equals("Kaufen"))
+                    if (methode.Equals("Reparieren") || methode.Equals("Verliehen") || methode.Equals("Zurueckgeben" ))
                     {
                         Console.Write("Model: ");
                         model = Console.ReadLine(); 
                         ausg = webseite.webservice.Get(model,methode);
                         Console.WriteLine(ausg);
-                    }else if (methode.Equals("Reparieren"))
+                    }else if (methode.Equals("Kaufen"))
                     {
                         Console.Write("Model: ");
                         model = Console.ReadLine(); 
-                        ausg = webseite.webservice.Get(model,methode);
+                        
+                        ausg = webseite.webservice.Delete(model);
+                        Console.WriteLine(ausg);
+                    }else if (methode.Equals("Einfaerben"))
+                    {
+                        Console.Write("Model: ");
+                        model = Console.ReadLine();
+                        Console.WriteLine("Verfuegbare Farben:");
+                        Console.WriteLine("+++++++++++++++++++++++");
+                        webseite.FarbeAusgabe();
+                        Console.Write("Farbe: ");
+                        int farbe = int.Parse(Console.ReadLine());
+                        ausg = webseite.webservice.Put(farbe, model);
                         Console.WriteLine(ausg);
                     }
-                    
-                    Console.WriteLine("Verfuegbare Farben:");
-                    Console.WriteLine("+++++++++++++++++++++++");
-                    webseite.FarbeAusgabe();
-                    Console.WriteLine("Verfuegbare Hersteller:");
-                    Console.WriteLine("+++++++++++++++++++++++");
-                    webseite.HerstellerAusgabe();
+
                     break;
                 }
             }

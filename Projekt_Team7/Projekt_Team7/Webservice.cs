@@ -24,6 +24,9 @@ public class Webservice
             case "Zurueckgeben":
                 ausg = Datenbank.Zurueckgeben(modelName);
                 return ausg;
+            case "AusgabeListe":
+                ausg = Datenbank.Zurueckgeben(modelName);
+                return ausg;
 
             default:
                 return $"Ungültige Methode: {methode}";
@@ -40,7 +43,6 @@ public class Webservice
     public string Put( string model)
     {
         // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
-        string ausg = 
         return $"POST Request - Farbe: {farbe}, Model: {model}";
     }
 
