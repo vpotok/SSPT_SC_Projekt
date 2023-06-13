@@ -2,26 +2,26 @@ namespace Projekt_Team7;
 
 public class Webservice
 {
-    private DB Datenbank;
-    public Wevservice (DB datenBank)
+    public DatenBank Datenbank { get; set; } = new DatenBank();
+
+    public Webservice ()
     {
-        Datenbank = datenBank;
     }
 
     public string Get(string modelName, string methode)
     {
-        return $"GET Request für {modelName} - Methode: {methode}";
+        return $"GET Request fï¿½r {modelName} - Methode: {methode}";
     }
 
     public string Post (Farbe farbe, string model, Hersteller hersteller)
     {
-        return $"GET Request für {modelName} - Methode: {methode}";
+        return $"GET Request fï¿½r {modelName} - Methode: {methode}";
 
     }
 
     public string Delete(string modelName)
     {
-        return $"DELETE Request für {modelName}";
+        return $"DELETE Request fï¿½r {modelName}";
 
     }
 
