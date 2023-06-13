@@ -2,6 +2,11 @@ namespace Projekt_Team7;
 
 public class ModelFlugzeug : ModelFahrzeug
 {
+    public ModelFlugzeug(Farbe farbe, Hersteller hersteller, string model) : base(farbe, hersteller, model)
+    {
+        
+    }
+    
     public string Verkaufen()
     {
         return "Das ModelFlugzeug " + base.Verkaufen();

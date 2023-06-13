@@ -7,6 +7,15 @@ public abstract class ModelFahrzeug : IModelFahrzeug
     public Hersteller Hersteller { get; set; }
     public string Model { get; set; }
 
+    public ModelFahrzeug(Farbe farbe, Hersteller hersteller, string model)
+    {
+        Verfuegbar = true;
+        Farbe = farbe;
+        Hersteller = hersteller;
+        Model = model;
+    }
+        
+    
     public string Verkaufen()
     {
         return Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
