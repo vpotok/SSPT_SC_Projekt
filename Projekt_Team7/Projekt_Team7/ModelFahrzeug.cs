@@ -31,12 +31,9 @@ public abstract class ModelFahrzeug : IModelFahrzeug
         return Model + " vom Hersteller " + Hersteller + " hat nun die Farbe " + Farbe + ".";
     }
 
-    public bool Verleihen(int sec)
-    {
-        Verfuegbar = false;
-        return Verfuegbar;
-    }
-    
+    public abstract bool Verleihen();
+    public abstract bool Zurueckgeben();
+
     public string ToString()
     {
         return Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
