@@ -2,20 +2,25 @@ namespace Projekt_Team7;
 
 public class ModelFlugzeug : ModelFahrzeug
 {
+    public ModelFlugzeug(Farbe farbe, Hersteller hersteller, string model) : base(farbe, hersteller, model)
+    {
+        
+    }
+    
     public string Verkaufen()
     {
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
+        return "Das ModelFlugzeug " + base.Verkaufen();
     }
 
     public string Reparieren()
     {
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde repariert.";
+        return "Das ModelFlugzeug " + base.Verkaufen();
     }
 
     public string Einfaerben(Farbe farbe)
     {
         Farbe = farbe;
-        return "Das ModelFlugzeug " + Model + " vom Hersteller " + Hersteller + " hat nun die Farbe "+Farbe+".";
+        return "Das ModelFlugzeug " + base.Einfaerben(farbe);
     }
 
     public bool Verleihen(int sec)
@@ -27,6 +32,6 @@ public class ModelFlugzeug : ModelFahrzeug
     
     public string ToString()
     {
-        return "ModelFlugzeug: " + Model + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
+        return "ModelFlugzeug: " + base.ToString();
     }
 }
