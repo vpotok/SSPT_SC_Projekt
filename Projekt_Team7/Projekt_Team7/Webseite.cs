@@ -1,3 +1,5 @@
+using System.Threading.Channels;
+
 namespace Projekt_Team7;
 
 public class Webseite
@@ -38,6 +40,7 @@ public class Webseite
             {
                 string Modell = "";
                 string methode = "";
+                string ausg = "";
                 while (true)
                 {
                     Console.WriteLine("Moegliche Methoden fuer ModellFahrzeug:");
@@ -45,7 +48,16 @@ public class Webseite
                     methode = Console.ReadLine();
                     if (methode.Equals("Kaufen"))
                     {
-                        
+                        Console.Write("Model: ");
+                        model = Console.ReadLine(); 
+                        ausg = webseite.webservice.Get(model,methode);
+                        Console.WriteLine(ausg);
+                    }else if (methode.Equals("Reparieren"))
+                    {
+                        Console.Write("Model: ");
+                        model = Console.ReadLine(); 
+                        ausg = webseite.webservice.Get(model,methode);
+                        Console.WriteLine(ausg);
                     }
                     
                     Console.WriteLine("Verfuegbare Farben:");

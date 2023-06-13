@@ -10,16 +10,41 @@ public class Webservice
 
     public string Get(string ModellName, string methode)
     {
-        return $"GET Request f�r {ModellName} - Methode: {methode}";
+        string ausg = "";
+        switch (methode)
+        {
+            case "Verleihen":
+                ausg = Datenbank.Verleihen(modelName);
+                return ausg;
+
+            case "Reparieren":
+                ausg = Datenbank.Reparieren(modelName);
+                return ausg;
+
+            case "Zurueckgeben":
+                ausg = Datenbank.Zurueckgeben(modelName);
+                return ausg;
+
+            default:
+                return $"Ungültige Methode: {methode}";
+        }
     }
 
-    public string Post (Farbe farbe, string Modell, Hersteller hersteller)
+    // Einfaerben
+    public string Put(int farbe, string model)
     {
-        return $"GET Request f�r {ModellName} - Methode: {methode}";
-
+        string ausg = Datenbank.Einfaerben(model,farbe);
+        return ausg;
     }
 
-    public string Delete(string ModellName)
+    public string Put( string model)
+    {
+        // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
+        string ausg = 
+        return $"POST Request - Farbe: {farbe}, Model: {model}";
+    }
+
+    public string Delete(string modelName) //verkauf 
     {
         return $"DELETE Request f�r {ModellName}";
 

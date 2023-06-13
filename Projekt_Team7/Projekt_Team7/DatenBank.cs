@@ -21,22 +21,129 @@ public class DatenBank
         }
 
         listeFahrzeuge.Add(newm);
-        return "false";
+        return newm.ToString();
     }
 
-    public bool Verkaufen()
+
+
+    public string Verkaufen(string model)
     {
-        return false;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Verkaufen();
+                listeFahrzeuge.Remove(f);
+            }else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+
+        return ausg;
     }
 
-    public string Suchen()
+    
+
+    public string Suchen(string model)
     {
-        return null;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.ToString();
+                
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
     }
 
-    public bool Vorhanden()
+    public string Verleihen(string model)
     {
-        return true;
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                 bool verliehen = f.Verleihen();
+                 if (verliehen)
+                 {
+                     ausg = f.Model + " wurde verliehen.";
+                 }
+                 else
+                 {
+                     ausg = f.Model + " kann nicht verliehen werden.";
+                 }
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
     }
     
+    public string Zurueckgeben(string model)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                bool zurueckgeben = f.Zurueckgeben();
+                if (zurueckgeben)
+                {
+                    ausg = f.Model + " wurde zurueckgegeben.";
+                }
+                else
+                {
+                    ausg = f.Model + " kann nicht zurueckgegeben werden.";
+                }
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg;
+    }
+
+    public string Reparieren(string model)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Reparieren();
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg; 
+    }
+    public string Einfaerben(string model, int farbe)
+    {
+        string ausg = "";
+        foreach (ModelFahrzeug f in listeFahrzeuge)
+        {
+            if (f.Model.Equals(model))
+            {
+                ausg = f.Einfaerben((Farbe)(farbe));
+            }
+            else
+            {
+                ausg = "Model nicht verfuegbar!";
+            }
+        }
+        return ausg; 
+    }
 }
