@@ -8,7 +8,7 @@ public class Webservice
     {
     }
 
-    public string Get(string modelName, string methode)
+    public string Get(string ModellName, string methode)
     {
         string ausg = "";
         switch (methode)
@@ -48,7 +48,7 @@ public class Webservice
 
     public string Delete(string modelName) //verkauf 
     {
-        return $"DELETE Request f�r {modelName}";
+        return $"DELETE Request f�r {ModellName}";
 
     }
 

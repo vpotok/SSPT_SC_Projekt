@@ -2,19 +2,19 @@ namespace Projekt_Team7;
 
 public class DatenBank
 {
-    private List<ModelFahrzeug> listeFahrzeuge = new List<ModelFahrzeug>();
+    private List<ModellFlugzeug> listeFahrzeuge = new List<ModellFlugzeug>();
 
     
-    public string Hinzufuegen(string art,string model, int hersteller, int farbe)
+    public string  Hinzufuegen(string art,string Modell, int hersteller, int farbe)
     {
-        ModelFlugzeug newm = null;
+        ModellFlugzeug newm = null;
         switch (art)
         {
             case "Auto":
-                newm = new ModelFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), model);
+                newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), Modell);
                 break;
             case "Flugzeug":
-                newm = new ModelFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), model);
+                newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), Modell);
                 break;
             default:
                 break;
