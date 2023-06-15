@@ -2,16 +2,16 @@ namespace Projekt_Team7;
 
 public class DatenBank
 {
-    private List<ModellFlugzeug> listeFahrzeuge = new List<ModellFlugzeug>();
+    private List<ModellFahrzeug> listeFahrzeuge = new List<ModellFahrzeug>();
 
     
     public string  Hinzufuegen(string art,string Modell, int hersteller, int farbe)
     {
-        ModellFlugzeug newm = null;
+        ModellFahrzeug newm = null;
         switch (art)
         {
             case "Auto":
-                newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), Modell);
+                newm = new ModellAuto((Farbe)(farbe), (Hersteller)(hersteller), Modell);
                 break;
             case "Flugzeug":
                 newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), Modell);
@@ -26,12 +26,12 @@ public class DatenBank
 
 
 
-    public string Verkaufen(string model)
+    public string Verkaufen(string modell)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Modell.Equals(modell))
             {
                 ausg = f.Verkaufen();
                 listeFahrzeuge.Remove(f);
@@ -46,12 +46,12 @@ public class DatenBank
 
     
 
-    public string Suchen(string model)
+    public string Suchen(string modell)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Modell.Equals(modell))
             {
                 ausg = f.ToString();
                 
@@ -74,11 +74,11 @@ public class DatenBank
                  bool verliehen = f.Verleihen();
                  if (verliehen)
                  {
-                     ausg = f.modell + " wurde verliehen.";
+                     ausg = f.Modell + " wurde verliehen.";
                  }
                  else
                  {
-                     ausg = f.Model + " kann nicht verliehen werden.";
+                     ausg = f.Modell + " kann nicht verliehen werden.";
                  }
             }
             else
@@ -89,21 +89,21 @@ public class DatenBank
         return ausg;
     }
     
-    public string Zurueckgeben(string model)
+    public string Zurueckgeben(string modell)
     {
         string ausg = "";
         foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Modell.Equals(modell))
             {
                 bool zurueckgeben = f.Zurueckgeben();
                 if (zurueckgeben)
                 {
-                    ausg = f.Model + " wurde zurueckgegeben.";
+                    ausg = f.Modell + " wurde zurueckgegeben.";
                 }
                 else
                 {
-                    ausg = f.Model + " kann nicht zurueckgegeben werden.";
+                    ausg = f.Modell + " kann nicht zurueckgegeben werden.";
                 }
             }
             else
@@ -114,28 +114,28 @@ public class DatenBank
         return ausg;
     }
 
-    public string Reparieren(string model)
+    public string Reparieren(string modell)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Modell.Equals(modell))
             {
                 ausg = f.Reparieren();
             }
             else
             {
-                ausg = "Model nicht verfuegbar!";
+                ausg = "Modell nicht verfuegbar!";
             }
         }
         return ausg; 
     }
-    public string Einfaerben(string model, int farbe)
+    public string Einfaerben(string modell, int farbe)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Modell.Equals(modell))
             {
                 ausg = f.Einfaerben((Farbe)(farbe));
             }
