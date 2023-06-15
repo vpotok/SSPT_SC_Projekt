@@ -38,7 +38,7 @@ public class Webseite
             int port = int.Parse(Console.ReadLine());
             if (url.Equals(webseite.Host) && port == webseite.Port)
             {
-                string Modell = "";
+                string modell = "";
                 string methode = "";
                 string ausg = "";
                 while (true)
@@ -49,26 +49,26 @@ public class Webseite
                     if (methode.Equals("Reparieren") || methode.Equals("Verliehen") || methode.Equals("Zurueckgeben" ))
                     {
                         Console.Write("Model: ");
-                        model = Console.ReadLine(); 
-                        ausg = webseite.webservice.Get(model,methode);
+                        modell = Console.ReadLine(); 
+                        ausg = webseite.webservice.Get(modell,methode);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Kaufen"))
                     {
                         Console.Write("Model: ");
-                        model = Console.ReadLine(); 
+                        modell = Console.ReadLine(); 
                         
-                        ausg = webseite.webservice.Delete(model);
+                        ausg = webseite.webservice.Delete(modell);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Einfaerben"))
                     {
                         Console.Write("Model: ");
-                        model = Console.ReadLine();
+                        modell = Console.ReadLine();
                         Console.WriteLine("Verfuegbare Farben:");
                         Console.WriteLine("+++++++++++++++++++++++");
                         webseite.FarbeAusgabe();
                         Console.Write("Farbe: ");
                         int farbe = int.Parse(Console.ReadLine());
-                        ausg = webseite.webservice.Put(farbe, model);
+                        ausg = webseite.webservice.Put(farbe, modell);
                         Console.WriteLine(ausg);
                     }
 

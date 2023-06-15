@@ -64,17 +64,17 @@ public class DatenBank
         return ausg;
     }
 
-    public string Verleihen(string model)
+    public string Verleihen(string modell)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Model.Equals(model))
+            if (f.Equals(modell))
             {
                  bool verliehen = f.Verleihen();
                  if (verliehen)
                  {
-                     ausg = f.Model + " wurde verliehen.";
+                     ausg = f.modell + " wurde verliehen.";
                  }
                  else
                  {
@@ -92,7 +92,7 @@ public class DatenBank
     public string Zurueckgeben(string model)
     {
         string ausg = "";
-        foreach (ModelFahrzeug f in listeFahrzeuge)
+        foreach (ModellFahrzeug f in listeFahrzeuge)
         {
             if (f.Model.Equals(model))
             {

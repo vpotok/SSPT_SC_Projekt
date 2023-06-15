@@ -8,24 +8,24 @@ public class Webservice
     {
     }
 
-    public string Get(string ModellName, string methode)
+    public string Get(string modellName, string methode)
     {
         string ausg = "";
         switch (methode)
         {
             case "Verleihen":
-                ausg = Datenbank.Verleihen(modelName);
+                ausg = Datenbank.Verleihen(modellName);
                 return ausg;
 
             case "Reparieren":
-                ausg = Datenbank.Reparieren(modelName);
+                ausg = Datenbank.Reparieren(modellName);
                 return ausg;
 
             case "Zurueckgeben":
-                ausg = Datenbank.Zurueckgeben(modelName);
+                ausg = Datenbank.Zurueckgeben(modellName);
                 return ausg;
             case "AusgabeListe":
-                ausg = Datenbank.Zurueckgeben(modelName);
+                ausg = Datenbank.Zurueckgeben(modellName);
                 return ausg;
 
             default:
@@ -43,12 +43,12 @@ public class Webservice
     public string Put( string model)
     {
         // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
-        return $"POST Request - Farbe: {farbe}, Model: {model}";
+        return $"POST Request -  Model: {model}";
     }
 
-    public string Delete(string modelName) //verkauf 
+    public string Delete(string modellName) //verkauf 
     {
-        return $"DELETE Request f�r {ModellName}";
+        return $"DELETE Request f�r {modellName}";
 
     }
 
