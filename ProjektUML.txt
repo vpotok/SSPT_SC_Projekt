@@ -1,0 +1,82 @@
+@startuml
+skinparam classAttributeIconSize 0
+interface IModellFahrzeug {
+  +{abstract}Verkaufen(): string
+  +{abstract}Reparieren(): string
+  +{abstract}Einfaerben(farbe: Farbe): string
+  +{abstract}Verleihen(): bool
+  +{abstract}Zurueckgeben(): bool
+  +{abstract}ToString(): string
+}
+abstract class ModellFahrzeug implements IModellFahrzeug{
+  +ModellFahrzeug(farbe: Farbe, hersteller: Hersteller, modell: string)
+  +Verkaufen(): string
+  +Reparieren(): string
+  +Einfaerben(farbe: string): string
+  +{abstract}Verleihen(): bool
+  +{abstract}Zurueckgeben(): bool
+  +ToString(): string
+}
+class ModellAuto extends ModellFahrzeug {
+  +ModelAuto(farbe: Farbe, hersteller: Hersteller, modell: string)
+  +Verkaufen(): string
+  +Reparieren(): string
+  +Einfaerben(farbe: string): string
+  +Verleihen(): bool
+  +Zurueckgegeben(): bool
+  +ToString(): string
+}
+class ModellFlugzeug extends ModellFahrzeug {
+  +ModelFlugzeug(farbe: Farbe, hersteller: Hersteller, modell: string)
+  +Verkaufen(): string
+  +Reparieren(): string
+  +Einfaerben(farbe: string): string
+  +Verleihen(): bool
+  +Zurueckgegeben(): bool
+  +ToString(): string
+}
+class DatenBank {
+  -listeFahrzeuge: ModellFahrzeug
+  +Hinzufuegen(art: string, modell: string, hersteller: int, farbe: int): string
+  +Verkaufen(string: modell): string
+  +Suchen(string: modell): string
+  +Verleihen(string: modell): string
+  +Zurueckgeben(string: modell): string
+  +Reparieren(modell: string): string
+  +Einfaerben(modell: string, farbe: int)
+}
+class Webservice{
+  -Datenbank: DatenBank
+  +Get(ModellName: string, methode: string): string
+  +Post(farbe: int, modell: string): string
+  +Post(modell: string): string
+  +Delete(modellName: string): string
+}
+class Webseite{
+  + HOST: string
+  + PORT: int
+  - webservice: Webservice
+  + FarbeAusgabe(): void
+  + HerstellerAusgabe(): void
+  + {static}main(args: string[]): void
+}
+
+enum Hersteller {
+  BMW
+  Audi
+  Boeing
+  Airbus
+}
+
+enum Farbe{
+  Schwarz
+  Weiss
+  Gelb
+  Gruen
+  Blau
+  Rot
+}
+DatenBank --> ModellFahrzeug
+Webseite --> Webservice
+Webservice--> DatenBank
+@enduml
