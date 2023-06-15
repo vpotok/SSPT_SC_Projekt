@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace Projekt_Team7;
 
 public class DatenBank
@@ -146,4 +148,46 @@ public class DatenBank
         }
         return ausg; 
     }
+
+    public string Verfuegbar(string ModellArt)
+    {
+        string ausg = "Liste aller Verfuebaren Modelle";
+        
+        switch (ModellArt)
+        {
+            case "Alle":
+                foreach (ModellFahrzeug allF in listeFahrzeuge)
+                {
+                    if (allF.Verfuegbar)
+                    {
+                        ausg += ":\n" + allF.ToString();
+                    }
+                }
+                break;
+            case "Auto":
+                foreach (ModellFahrzeug fa in listeFahrzeuge)
+                {
+                    if (fa.Equals(typeof(ModellAuto)) && fa.Verfuegbar)
+                    {
+                        ausg += "vom Typ Auto:\n" + fa.ToString();
+                    }
+                }
+                break;
+            case "Flugzeug":
+                foreach (ModellFahrzeug ff in listeFahrzeuge)
+                {
+                    if (ff.Equals(typeof(ModellFlugzeug)) && ff.Verfuegbar)
+                    {
+                        ausg += "vom Typ Flugzeug:\n" + ff.ToString();
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+
+        return ausg;
+    }
+
+    
 }

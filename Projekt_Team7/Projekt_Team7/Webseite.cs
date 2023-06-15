@@ -25,18 +25,14 @@ public class Webseite
         }
     }
     
-
-    static void Main(string[] args)
+    public void start()
     {
-        Webseite webseite = new Webseite();
-        try
-        {
-            Console.WriteLine("------------------");
+         Console.WriteLine("------------------");
             Console.Write("URL: ");
             string url = Console.ReadLine();
             Console.Write("Port:");
             int port = int.Parse(Console.ReadLine());
-            if (url.Equals(webseite.Host) && port == webseite.Port)
+            if (url.Equals(Host) && port == Port)
             {
                 string modell = "";
                 string methode = "";
@@ -44,20 +40,23 @@ public class Webseite
                 while (true)
                 {
                     Console.WriteLine("Moegliche Methoden fuer ModellFahrzeug:");
-                    Console.WriteLine("Kaufen, Reparieren, Verliehen, Zurueckgeben, Einfaerben");
+                    Console.WriteLine("Kaufen, Reparieren, Verliehen, Zurueckgeben, Einfaerben, Close");
                     methode = Console.ReadLine();
                     if (methode.Equals("Reparieren") || methode.Equals("Verliehen") || methode.Equals("Zurueckgeben" ))
                     {
                         Console.Write("Model: ");
                         modell = Console.ReadLine(); 
-                        ausg = webseite.webservice.Get(modell,methode);
+                        ausg = webservice.Get(modell,methode);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Kaufen"))
                     {
+                        Console.WriteLine("Welche ModellArt wollen Sie kaufen?\nMoegliche Eingaben: Alle, Auto, Flugzeug");
+                        string modellArt = Console.ReadLine();
+                        webservice.GET(modellArt);
                         Console.Write("Model: ");
                         modell = Console.ReadLine(); 
                         
-                        ausg = webseite.webservice.Delete(modell);
+                        ausg = webservice.Delete(modell);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Einfaerben"))
                     {
@@ -65,16 +64,29 @@ public class Webseite
                         modell = Console.ReadLine();
                         Console.WriteLine("Verfuegbare Farben:");
                         Console.WriteLine("+++++++++++++++++++++++");
-                        webseite.FarbeAusgabe();
+                        FarbeAusgabe();
                         Console.Write("Farbe: ");
                         int farbe = int.Parse(Console.ReadLine());
-                        ausg = webseite.webservice.Put(farbe, modell);
+                        ausg = webservice.Put(farbe, modell);
                         Console.WriteLine(ausg);
+                    }else if (methode.Equals("Close"))
+                    {
+                        Console.WriteLine("Connection wurde geschloßen.");
+                        break;
                     }
 
-                    break;
+                    
                 }
             }
+    }
+    static void Main(string[] args)
+    {
+        Webseite webseite = new Webseite();
+        try
+        {
+            
+                
+            
         }
         catch (Exception e)
         {
