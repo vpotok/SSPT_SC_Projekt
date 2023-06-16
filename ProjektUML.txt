@@ -9,56 +9,65 @@ interface IModellFahrzeug {
   +{abstract}ToString(): string
 }
 abstract class ModellFahrzeug implements IModellFahrzeug{
+  +Verfügbar: bool <<set/get>>
+  +Farbe: Farbe <<set/get>>
+  +Hersteller: Hersteller <<set/get>>
+  +Modell: string <<set/get>>
+  +ModellArt: string
   +ModellFahrzeug(farbe: Farbe, hersteller: Hersteller, modell: string)
-  +Verkaufen(): string
-  +Reparieren(): string
-  +Einfaerben(farbe: string): string
-  +{abstract}Verleihen(): bool
-  +{abstract}Zurueckgeben(): bool
+  +{abstract}Verkaufen(): string
+  +{abstract}Reparieren(): string
+  +{abstract}Einfaerben(farbe: string): string
+  +{abstract}Verleihen(): string
+  +{abstract}Zurueckgeben(): string
   +ToString(): string
 }
 class ModellAuto extends ModellFahrzeug {
   +ModelAuto(farbe: Farbe, hersteller: Hersteller, modell: string)
   +Verkaufen(): string
   +Reparieren(): string
-  +Einfaerben(farbe: string): string
-  +Verleihen(): bool
-  +Zurueckgegeben(): bool
+  +Einfaerben(farbe: Farbe): string
+  +Verleihen(): string
+  +Zurueckgegeben(): string
   +ToString(): string
 }
 class ModellFlugzeug extends ModellFahrzeug {
   +ModelFlugzeug(farbe: Farbe, hersteller: Hersteller, modell: string)
   +Verkaufen(): string
   +Reparieren(): string
-  +Einfaerben(farbe: string): string
-  +Verleihen(): bool
-  +Zurueckgegeben(): bool
+  +Einfaerben(farbe: Farbe): string
+  +Verleihen(): string
+  +Zurueckgegeben(): string
   +ToString(): string
 }
 class DatenBank {
-  -listeFahrzeuge: ModellFahrzeug
+  -listeFahrzeuge: List<ModellFahrzeug>
   +Hinzufuegen(art: string, modell: string, hersteller: int, farbe: int): string
-  +Verkaufen(string: modell): string
-  +Suchen(string: modell): string
-  +Verleihen(string: modell): string
-  +Zurueckgeben(string: modell): string
+  +Verkaufen(modell: string): string
+  +Suchen(modell: string): string
+  +Verleihen(modell: string): string
+  +Zurueckgeben(modell: string): string
   +Reparieren(modell: string): string
-  +Einfaerben(modell: string, farbe: int)
+  +Einfaerben(modell: string, farbe: int): string
+  +Verfuegbar(ModellArt: string): string
 }
 class Webservice{
-  -Datenbank: DatenBank
-  +Get(ModellName: string, methode: string): string
-  +Post(farbe: int, modell: string): string
-  +Post(modell: string): string
+  +Datenbank: DatenBank <<set/get>>
+  +Webservice()
+  +Get(modellName: string, methode: string): string
+  +GET(ModellArt: string): string
+  +Put(modell: string, farbe: int): string
+  +Put(art: string, modell: string, hersteller: int, farbe: int): string
   +Delete(modellName: string): string
 }
 class Webseite{
-  + HOST: string
-  + PORT: int
-  - webservice: Webservice
-  + FarbeAusgabe(): void
-  + HerstellerAusgabe(): void
-  + {static}main(args: string[]): void
+  +HOST: string
+  +PORT: int
+  -webservice: Webservice
+  +FarbeAusgabe(): void
+  +HerstellerAusgabe(): void
+  +start(): void
+  +{static}main(args: string[]): void
 }
 
 enum Hersteller {
