@@ -74,7 +74,7 @@ public class DatenBank
         {
             if (f.Modell.Equals(modell))
             {
-                ausg = f.Verleihen();
+                ausg = f.Verleihen().ToString();
                 break;
             }
             else
@@ -92,7 +92,7 @@ public class DatenBank
         {
             if (f.Modell.Equals(modell))
             {
-                ausg = f.Zurueckgeben();
+                ausg = f.Zurueckgeben().ToString;
                 break;
             }
             else

@@ -58,10 +58,10 @@ public class Webservice
         return ausg;
     }
 
-    public string Put(string art,string Modell, int hersteller, int farbe)
+    public string Put(string art,string modell, int hersteller, int farbe)
     {
         // Logik für den PUT-Request zum Hinzufuegen eines Fahrzeugs zur Datenbank
-        Datenbank.Hinzufuegen(art, Modell, hersteller, farbe);
+        Datenbank.Hinzufuegen(art, modell, hersteller, farbe);
         return null;
     }
 
