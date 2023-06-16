@@ -6,7 +6,7 @@ public abstract class ModellFahrzeug : IModellFahrzeug
     public Farbe Farbe { get; set; }
     public Hersteller Hersteller { get; set; }
     public string Modell { get; set; }
-
+    public string ModellArt { set; get; } = "none";
     public ModellFahrzeug(Farbe farbe, Hersteller hersteller, string modell)
     {
         Verfuegbar = true;
@@ -14,28 +14,18 @@ public abstract class ModellFahrzeug : IModellFahrzeug
         Hersteller = hersteller;
         Modell = modell;
     }
-        
-    
-    public string Verkaufen()
-    {
-        return Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";
-    }
-    public string Reparieren()
-    {
-        return Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde repariert.";
-    }
 
-    public string Einfaerben(Farbe farbe)
-    {
-        Farbe = farbe;
-        return Modell + " vom Hersteller " + Hersteller + " hat nun die Farbe " + Farbe + ".";
-    }
 
-    public abstract bool Verleihen();
-    public abstract bool Zurueckgeben();
+    public abstract string Verkaufen();
+    public abstract string Reparieren();
+
+    public abstract string Einfaerben(Farbe farbe);
+
+    public abstract string Verleihen();
+    public abstract string Zurueckgeben();
 
     public string ToString()
     {
-        return Modell + "\nHersteller: " + Hersteller + "\nFarbe: " + Farbe;
+        return "Art: "+ModellArt+" Modell: "+Modell + " Hersteller: " + Hersteller + " Farbe: " + Farbe;
     }
 }
