@@ -4,8 +4,8 @@ namespace Projekt_Team7;
 
 public class Webseite
 {
-    public string Host { get; set; } = "webshop.at";
-    public int Port { get; set; } = 443;
+    public const string HOST = "webshop.at";
+    public const int PORT = 443;
     private Webservice webservice = new Webservice();
 
 
@@ -36,7 +36,7 @@ public class Webseite
             string url = Console.ReadLine();
             Console.Write("Port:");
             int port = int.Parse(Console.ReadLine());
-            if (url.Equals(webseite.Host) && port == webseite.Port)
+            if (url.Equals(HOST) && port == PORT)
             {
                 string modell = "";
                 string methode = "";

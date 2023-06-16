@@ -34,16 +34,16 @@ public class Webservice
     }
 
     // Einfaerben
-    public string Put(int farbe, string model)
+    public string Put(int farbe, string modell)
     {
-        string ausg = Datenbank.Einfaerben(model,farbe);
+        string ausg = Datenbank.Einfaerben(modell,farbe);
         return ausg;
     }
 
-    public string Put( string model)
+    public string Put(string modell)
     {
         // Logik für den POST-Request zum Hinzufügen eines Fahrzeugs zur Datenbank
-        return $"POST Request -  Model: {model}";
+        return $"POST Request -  Model: {modell}";
     }
 
     public string Delete(string modellName) //verkauf 

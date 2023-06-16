@@ -5,16 +5,16 @@ public class DatenBank
     private List<ModellFahrzeug> listeFahrzeuge = new List<ModellFahrzeug>();
 
     
-    public string  Hinzufuegen(string art,string Modell, int hersteller, int farbe)
+    public string  Hinzufuegen(string art,string modell, int hersteller, int farbe)
     {
         ModellFahrzeug newm = null;
         switch (art)
         {
             case "Auto":
-                newm = new ModellAuto((Farbe)(farbe), (Hersteller)(hersteller), Modell);
+                newm = new ModellAuto((Farbe)(farbe), (Hersteller)(hersteller), modell);
                 break;
             case "Flugzeug":
-                newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), Modell);
+                newm = new ModellFlugzeug((Farbe)(farbe), (Hersteller)(hersteller), modell);
                 break;
             default:
                 break;

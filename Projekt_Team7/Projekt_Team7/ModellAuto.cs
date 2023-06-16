@@ -25,7 +25,7 @@ public class ModellAuto : ModellFahrzeug
 
     public override bool Verleihen()
     {
-        Console.WriteLine("Das ModellAuto " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe: "+Farbe+" wird verliehen.");
+        Console.WriteLine("Das ModellAuto " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe: "+ Farbe +" wird verliehen.");
         Verfuegbar = false;
         return Verfuegbar;
     }

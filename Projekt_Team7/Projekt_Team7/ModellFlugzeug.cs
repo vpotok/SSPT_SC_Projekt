@@ -2,7 +2,7 @@ namespace Projekt_Team7;
 
 public class ModellFlugzeug : ModellFahrzeug
 {
-    public ModellFlugzeug(Farbe farbe, Hersteller hersteller, string Modell) : base(farbe, hersteller, Modell)
+    public ModellFlugzeug(Farbe farbe, Hersteller hersteller, string modell) : base(farbe, hersteller, modell)
     {
         
     }
