@@ -5,8 +5,8 @@ public interface IModellFahrzeug
     public string Verkaufen();
     public string Reparieren();
     public string Einfaerben(Farbe farbe);
-    public bool Verleihen();
-    public bool Zurueckgeben();
+    public string Verleihen();
+    public string Zurueckgeben();
 
     public string ToString();
 }

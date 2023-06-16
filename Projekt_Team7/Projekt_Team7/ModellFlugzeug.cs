@@ -4,41 +4,88 @@ public class ModellFlugzeug : ModellFahrzeug
 {
     public ModellFlugzeug(Farbe farbe, Hersteller hersteller, string Modell) : base(farbe, hersteller, Modell)
     {
-        
+        ModellArt = "Flugzeug";
     }
     
-    public string Verkaufen()
+    public override string Verkaufen()
     {
-        return "Das ModellFlugzeug " + base.Verkaufen();
+        string ausg = "";
+        if (Verfuegbar)
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde verkauft.";;
+        }
+        else
+        {
+            ausg = "Das ModellFlugzeug" + Modell + " konnte nicht verkauft werden.";
+        }
+        
+        return ausg;
     }
 
-    public string Reparieren()
+    public override string Reparieren()
     {
-        return "Das ModellFlugzeug " + base.Verkaufen();
+        string ausg = "";
+        if (Verfuegbar)
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde repariert.";
+        }
+        else
+        {
+            ausg = "Das ModellFlugzeug" + Modell + " konnte nicht repariert werden.";
+        }
+
+        return ausg;
     }
 
-    public string Einfaerben(Farbe farbe)
+    public override string Einfaerben(Farbe farbe)
     {
-        Farbe = farbe;
-        return "Das ModellFlugzeug " + base.Einfaerben(farbe);
+        string ausg = "";
+        if (Verfuegbar)
+        {
+            Farbe = farbe;
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " hat nun die Farbe " + Farbe + ".";
+        }
+        else
+        {
+            ausg = "Das ModellFlugzeug" + Modell + " konnte nicht eingefaerbt werden.";
+        }
+        return ausg;
     }
 
-    public override bool Verleihen()
+    public override string Verleihen()
     {
-        Console.WriteLine("Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " wird verliehen.");
-        Verfuegbar = false;
-        return Verfuegbar;
+        string ausg = "";
+        if (Verfuegbar)
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe "+Farbe+" wird verliehen.";
+            Verfuegbar = false;
+        }
+        else
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " konnte nicht verliehen werden.";
+        }
+        
+        return ausg;
     }
 
-    public override bool Zurueckgeben()
+    public override string Zurueckgeben()
     {
-        Console.WriteLine("Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " wurde zurueckgegeben.");
-        Verfuegbar = true;
-        return Verfuegbar;
+        string ausg = "";
+        if (!Verfuegbar)
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde zurueckgegeben.";
+            Verfuegbar = true;
+        }
+        else
+        {
+            ausg = "Das ModellFlugzeug " + Modell + " vom Hersteller " + Hersteller + " mit der Farbe " + Farbe + " wurde zurueckgegeben.";
+        }
+        
+        return ausg;
     }
 
     public string ToString()
     {
-        return "ModellFlugzeug: " + base.ToString();
+        return base.ToString();
     }
 }

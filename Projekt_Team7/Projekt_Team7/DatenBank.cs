@@ -37,6 +37,7 @@ public class DatenBank
             {
                 ausg = f.Verkaufen();
                 listeFahrzeuge.Remove(f);
+                break;
             }else
             {
                 ausg = "Model nicht verfuegbar!";
@@ -71,17 +72,10 @@ public class DatenBank
         string ausg = "";
         foreach (ModellFahrzeug f in listeFahrzeuge)
         {
-            if (f.Equals(modell))
+            if (f.Modell.Equals(modell))
             {
-                 bool verliehen = f.Verleihen();
-                 if (verliehen)
-                 {
-                     ausg = f.Modell + " wurde verliehen.";
-                 }
-                 else
-                 {
-                     ausg = f.Modell + " kann nicht verliehen werden.";
-                 }
+                ausg = f.Verleihen();
+                break;
             }
             else
             {
@@ -98,15 +92,8 @@ public class DatenBank
         {
             if (f.Modell.Equals(modell))
             {
-                bool zurueckgeben = f.Zurueckgeben();
-                if (zurueckgeben)
-                {
-                    ausg = f.Modell + " wurde zurueckgegeben.";
-                }
-                else
-                {
-                    ausg = f.Modell + " kann nicht zurueckgegeben werden.";
-                }
+                ausg = f.Zurueckgeben();
+                break;
             }
             else
             {
@@ -124,6 +111,7 @@ public class DatenBank
             if (f.Modell.Equals(modell))
             {
                 ausg = f.Reparieren();
+                break;
             }
             else
             {
@@ -140,6 +128,7 @@ public class DatenBank
             if (f.Modell.Equals(modell))
             {
                 ausg = f.Einfaerben((Farbe)(farbe));
+                break;
             }
             else
             {
@@ -151,7 +140,7 @@ public class DatenBank
 
     public string Verfuegbar(string ModellArt)
     {
-        string ausg = "Liste aller Verfuebaren Modelle";
+        string ausg = "Liste aller Verfuebaren Modelle:\n";
         
         switch (ModellArt)
         {
@@ -160,25 +149,26 @@ public class DatenBank
                 {
                     if (allF.Verfuegbar)
                     {
-                        ausg += ":\n" + allF.ToString();
+                        ausg += "\n" + allF.ToString();
                     }
                 }
                 break;
             case "Auto":
                 foreach (ModellFahrzeug fa in listeFahrzeuge)
                 {
-                    if (fa.Equals(typeof(ModellAuto)) && fa.Verfuegbar)
+                    
+                    if (fa.ModellArt.Equals(ModellArt) && fa.Verfuegbar)
                     {
-                        ausg += "vom Typ Auto:\n" + fa.ToString();
+                        ausg += "\n" + fa.ToString();
                     }
                 }
                 break;
             case "Flugzeug":
                 foreach (ModellFahrzeug ff in listeFahrzeuge)
                 {
-                    if (ff.Equals(typeof(ModellFlugzeug)) && ff.Verfuegbar)
+                    if (ff.ModellArt.Equals(ModellArt) && ff.Verfuegbar)
                     {
-                        ausg += "vom Typ Flugzeug:\n" + ff.ToString();
+                        ausg += "\n" + ff.ToString();
                     }
                 }
                 break;
@@ -186,6 +176,7 @@ public class DatenBank
                 break;
         }
 
+        
         return ausg;
     }
 

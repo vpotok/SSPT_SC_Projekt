@@ -10,9 +10,9 @@ public class Webservice
         Put("Auto", "A4", 1,3);
         Put("Auto", "E46", 0,4);
         Put("Auto", "A7", 1,5);
-        Put("Flugzeug", "747", 3,2);
-        Put("Flugzeug", "737-800", 3,0);
-        Put("Flugzeug", "A350", 4,5);
+        Put("Flugzeug", "747", 2,2);
+        Put("Flugzeug", "737", 2,0);
+        Put("Flugzeug", "A350", 3,5);
         
     }
 
@@ -45,17 +45,16 @@ public class Webservice
 
     public string GET(string ModellArt)
     {
-        // Ausgabe der zum Verkauf/verleig stehenden Fahrzeuge
-        string ausg = "";
-        Datenbank.Verfuegbar(ModellArt);
+        // Ausgabe der zum Verkauf/verleih stehenden Fahrzeuge
+        string ausg = Datenbank.Verfuegbar(ModellArt);
         return ausg;
     }
 
     // Einfaerben
-    public string Put(int farbe, string model)
+    public string Put(string modell, int farbe)
     {
         //Einfaerben eines Modellfahrzeuges
-        string ausg = Datenbank.Einfaerben(model,farbe);
+        string ausg = Datenbank.Einfaerben(modell,farbe);
         return ausg;
     }
 

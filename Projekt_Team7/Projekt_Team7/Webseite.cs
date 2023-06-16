@@ -13,7 +13,7 @@ public class Webseite
     {
         for (int i = 0; i < Enum.GetValuesAsUnderlyingType(typeof(Farbe)).Length; i++)
         {
-            Console.WriteLine((Farbe)(i));
+            Console.WriteLine(i+": "+(Farbe)(i));
         }
     }
     
@@ -40,24 +40,33 @@ public class Webseite
                 while (true)
                 {
                     Console.WriteLine("Moegliche Methoden fuer ModellFahrzeug:");
-                    Console.WriteLine("Kaufen, Reparieren, Verliehen, Zurueckgeben, Einfaerben, Close");
+                    Console.WriteLine("Kaufen, Reparieren, Verleihen, Zurueckgeben, Einfaerben, Close");
                     methode = Console.ReadLine();
-                    if (methode.Equals("Reparieren") || methode.Equals("Verliehen") || methode.Equals("Zurueckgeben" ))
+                    if (methode.Equals("Reparieren") || methode.Equals("Verleihen") || methode.Equals("Zurueckgeben" ))
                     {
+                        
+                        Console.WriteLine("Welche ModellArt wollen Sie leihen/zurueckgben/reparieren?\nMoegliche Eingaben: Alle, Auto, Flugzeug");
+                        string modellArt = Console.ReadLine();
+                        string modelleVer = webservice.GET(modellArt);
+                        Console.WriteLine(modelleVer);
+                        
                         Console.Write("Model: ");
                         modell = Console.ReadLine(); 
+                        
                         ausg = webservice.Get(modell,methode);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Kaufen"))
                     {
                         Console.WriteLine("Welche ModellArt wollen Sie kaufen?\nMoegliche Eingaben: Alle, Auto, Flugzeug");
                         string modellArt = Console.ReadLine();
-                        webservice.GET(modellArt);
-                        Console.Write("Model: ");
-                        modell = Console.ReadLine(); 
+                        string modelleVer = webservice.GET(modellArt);
+                        Console.WriteLine(modelleVer);
                         
+                        Console.Write("Model: ");
+                        modell = Console.ReadLine();
                         ausg = webservice.Delete(modell);
                         Console.WriteLine(ausg);
+                        
                     }else if (methode.Equals("Einfaerben"))
                     {
                         Console.Write("Model: ");
@@ -67,15 +76,13 @@ public class Webseite
                         FarbeAusgabe();
                         Console.Write("Farbe: ");
                         int farbe = int.Parse(Console.ReadLine());
-                        ausg = webservice.Put(farbe, modell);
+                        ausg = webservice.Put(modell, farbe);
                         Console.WriteLine(ausg);
                     }else if (methode.Equals("Close"))
                     {
                         Console.WriteLine("Connection wurde geschloßen.");
                         break;
                     }
-
-                    
                 }
             }
     }
@@ -84,9 +91,7 @@ public class Webseite
         Webseite webseite = new Webseite();
         try
         {
-            
-                
-            
+            webseite.start();
         }
         catch (Exception e)
         {
