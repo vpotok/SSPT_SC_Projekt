@@ -43,6 +43,7 @@ Mithilfe zweier Unit Tests wird die korrekte Funktionalität des Kaufvorgangs ü
 ### Verleih-Test
 Mithilfer von drei Unit Tests wird die korrekte Funktionalität des Verleihvorgangs überprüft in dem der Autobestand von dem Verleih auf Korrektheit überprüft wird und der Autobestand nach dem Verleih auf Korrektheit überprüft wird. Zudem wird nach Ablauf der Verleihzeit geprüft ob der Autobestand korrekt aktualisiert wurde indem das verliehene Auto "zurückgegegeben" wurde.
 <br>
+<br>
 In Summe bilden sich daher 5 Unit Tests.
 
 ## Klassendiagramm
