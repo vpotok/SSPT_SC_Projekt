@@ -1,5 +1,8 @@
 using System.Drawing;
 
+
+
+
 namespace Projekt_Team7;
 
 public class DatenBank
@@ -92,7 +95,7 @@ public class DatenBank
         {
             if (f.Modell.Equals(modell))
             {
-                ausg = f.Zurueckgeben().ToString;
+                ausg = f.Zurueckgeben();
                 break;
             }
             else
