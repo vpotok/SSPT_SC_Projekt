@@ -39,9 +39,9 @@ Wenn die Auswahl von Hersteller und Farbe getroffen wurde, wird eine Reperaturbe
 
 ## Unit-Tests
 ### Kauf-Test
-Mithilfe eines Unit Tests wird die korrekte Funktionalität des Kaufvorgangs überprüft in dem der Autobestand vor dem Kauf auf Korrektheit überprüft wird und der Autobestand nach dem Kauf auf Korrektheit überprüft wird.
+Mithilfe eines Unit Tests wird die korrekte Funktionalität des Kaufvorgangs überprüft in dem der Autobestand nach dem Kauf auf Korrektheit überprüft wird.
 ### Verleih-Test
-Mithilfe eines Unit Tests wird die korrekte Funktionalität des Verleihvorgangs überprüft in dem der Autobestand von dem Verleih auf Korrektheit überprüft wird und der Autobestand nach dem Verleih auf Korrektheit überprüft wird. Zudem wird nach Ablauf der Verleihzeit geprüft ob der Autobestand korrekt aktualisiert wurde indem das verliehene Auto "zurückgegegeben" wurde.
+Mithilfe eines Unit Tests wird die korrekte Funktionalität des Verleihvorgangs überprüft in dem der Autobestand nach dem Verleih auf Korrektheit überprüft wird.
 ### Einfärb-Test
 Mithilfe eines Unit Tests wird die korrekte Funktionalität des Einfärbungsprozesses überprüft in dem die Ausgabe nach dem Einfärben kontrolliert wird, ob die richtige Farbe eingefärbt wurde.
 <br>
