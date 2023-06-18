@@ -1,4 +1,4 @@
-Team: Viktoria Potok, Nadine Resch, Alexander Zimmermann, Sebastian Hutter
+Team: Victoria Natalie Potok, Nadine Resch, Alexander Zimmermann, Sebastian Hutter
 <br>
 Version: 1.0.0
 <br>
